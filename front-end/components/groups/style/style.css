@@ -1,0 +1,153 @@
+/* CONTENEDOR PRINCIPAL */
+.groups-panel {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER: Flecha + Título */
+.groups-panel__header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.groups-panel__title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+/* BOTÓN DE VOLVER */
+.groups-panel__back-button {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #333;
+    padding: 0;
+    line-height: 1;
+    transition: opacity 0.2s ease;
+}
+
+.groups-panel__back-button:hover {
+    opacity: 0.6;
+}
+
+/* TOOLBAR (vacío por ahora, pero estilizado) */
+.groups-panel__toolbar {
+    margin-bottom: 20px;
+}
+
+/* TABLA */
+.groups-panel__table-container {
+    overflow-x: auto;
+}
+
+.groups-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.groups-table th {
+    text-align: left;
+    padding: 12px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+    border-bottom: 1px solid #e5e5e5;
+    background: #fafafa;
+}
+
+.groups-table td {
+    padding: 12px 10px;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.groups-table tr:hover td {
+    background: #f9f9f9;
+}
+
+/* BOTONES */
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 13px;
+    transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+/* Editar */
+.btn-edit {
+    background: #007bff;
+    color: #fff;
+}
+
+.btn-edit:hover {
+    background: #005fcc;
+}
+
+/* Guardar */
+.btn-save {
+    background: #28a745;
+    color: white;
+}
+
+.btn-save:hover {
+    background: #1f8736;
+}
+
+/* Cancelar */
+.btn-cancel {
+    background: #999;
+    color: white;
+}
+
+.btn-cancel:hover {
+    background: #777;
+}
+
+/* Borrar */
+.btn-delete {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-delete:hover {
+    background: #b52432;
+}
+
+/* Etiqueta no editable */
+.not-editable-label {
+    display: inline-block;
+    padding: 4px 8px;
+    background: #e0e0e0;
+    color: #555;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+/* Campo de edición */
+.groups-table input[type="text"] {
+    width: 95%;
+    padding: 6px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+}
+
+.groups-table input[type="text"]:focus {
+    border-color: #007bff;
+}

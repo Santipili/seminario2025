@@ -1,0 +1,48 @@
+.info {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  width: 320px;
+  padding: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(96, 223, 243, 0.836);
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.info__icon {
+  width: 20px;
+  height: 20px;
+  transform: translateY(-2px);
+  margin-right: 8px;
+  fill: rgb(249, 249, 249);
+}
+
+.info__icon path {
+  fill: rgb(255, 255, 255);
+}
+
+.info__title {
+  text-align: center;
+  margin-left: auto;
+  font-weight: 500;
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+}
+
+.info__close {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: none;
+  color: rgba(0, 0, 0, 0, 255);
+  margin-left: auto;
+  background-color: rgb(253, 253, 253);
+}
+
+.info__close path {
+  fill: rgba(0, 0, 0, 0);
+
+}

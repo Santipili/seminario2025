@@ -1,0 +1,124 @@
+/* --- CONTENEDOR GENERAL --- */
+.create-user {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: sans-serif;
+}
+
+/* --- HEADER --- */
+.create-user__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.create-user__back-button {
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 4px;
+    transition: opacity 0.2s ease;
+}
+
+.create-user__back-button:hover {
+    opacity: 0.6;
+}
+
+.create-user__title {
+    font-size: 22px;
+    margin: 0;
+    font-weight: 600;
+    color: #222;
+}
+
+/* --- FORMULARIO --- */
+.create-user__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* --- CAMPOS --- */
+.create-user__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.create-user__label {
+    font-size: 14px;
+    color: #444;
+}
+
+.create-user__input,
+.create-user__select {
+    padding: 10px 12px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background: #fafafa;
+}
+
+.create-user__input:focus,
+.create-user__select:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.15);
+    background: #fff;
+}
+
+/* --- BOTÓN SUBMIT --- */
+.create-user__submit {
+    margin-top: 12px;
+    width: 100%;
+    padding: 12px;
+    background: #4a90e2;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.create-user__submit:hover {
+    background: #3a78c4;
+}
+
+.create-user__submit:active {
+    background: #2f66a6;
+}
+
+/* --- MENSAJE --- */
+.create-user__message {
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    display: none;
+}
+
+.create-user__message[data-type="info"] {
+    background: #e9f3ff;
+    color: #3178c6;
+}
+
+.create-user__message[data-type="success"] {
+    background: #e8f7e8;
+    color: #2e7d32;
+}
+
+.create-user__message[data-type="error"] {
+    background: #fde7e7;
+    color: #c62828;
+}
