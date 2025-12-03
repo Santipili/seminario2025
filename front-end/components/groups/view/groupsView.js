@@ -23,6 +23,12 @@ class GroupsView extends HTMLElement {
         this.toolbar = document.createElement("div");
         this.toolbar.classList.add("groups-panel__toolbar");
 
+        this.newGroupButton = document.createElement("button");
+        this.newGroupButton.classList.add("btn", "btn--primary");
+        this.newGroupButton.innerHTML = `<span class="btn__icon">+</span><span>Nuevo grupo</span>`;
+
+        this.toolbar.appendChild(this.newGroupButton);
+
         this.tableContainer = document.createElement("div");
         this.tableContainer.classList.add("groups-panel__table-container");
 
@@ -50,13 +56,32 @@ class GroupsView extends HTMLElement {
         this.groupsPanel.appendChild(this.toolbar);
         this.groupsPanel.appendChild(this.tableContainer);
 
+        this.addGroupContainer = document.createElement("div");
+        this.addGroupContainer.classList.add("groups-panel__add-group");
+        this.addGroupContainer.style.display = "none";
+
+        this.addGroupInput = document.createElement("input");
+        this.addGroupInput.classList.add("groups-panel__new-group-input");
+        this.addGroupInput.placeholder = "Nuevo grupo...";
+
+        this.addNewGroupSaveButton = document.createElement("button");
+        this.addNewGroupSaveButton.classList.add("btn", "btn--primary");
+        this.addNewGroupSaveButton.textContent = "Guardar";
+        // this.addNewGroupSaveButton.style.display = "none";
+
+        this.addGroupContainer.appendChild(this.addGroupInput);
+        this.addGroupContainer.appendChild(this.addNewGroupSaveButton);
+
+
         this.appendChild(this.groupsPanel);
+        this.appendChild(this.addGroupContainer);
 
         this.onEditGroup = null;
         this.onDeleteGroup = null;
         this.onSaveEdit = null;
         this.onCancelEdit = null;
         this.onGoBack = null;
+        this.onSaveNewGroup = null;
 
         this.tableBody.addEventListener("click", (e) => {
             const button = e.target.closest("button");
@@ -84,6 +109,25 @@ class GroupsView extends HTMLElement {
                     break;
             }
         });
+
+        this.newGroupButton.addEventListener("click", () => this.toggleAddGroupSection());
+        // this.newGroupButton.addEventListener("click", () => console.log("hola"));
+
+        this.addNewGroupSaveButton.addEventListener("click", () => {
+            const groupName = this.addGroupInput.value.trim();
+            this.onSaveNewGroup(groupName);
+        });
+    }
+
+
+    toggleAddGroupSection() {
+        console.log(this.addGroupContainer.style.display);
+        if (this.addGroupContainer.style.display === "none") {
+            this.addGroupContainer.style.display = "block";
+            this.addGroupInput.focus();
+        } else {
+            this.addGroupContainer.style.display = "none";
+        }
     }
 
     /**
@@ -198,6 +242,18 @@ class GroupsView extends HTMLElement {
         }
     }
 
+    showAddGroupContainer() {
+        this.addGroupContainer.style.display = "block";
+        this.newGroupInput.focus();
+        // if (this.addGroupContainer.style.display === "none") {
+        //     this.addGroupContainer.style.display = "block";
+        //     this.newGroupInput.focus();
+        // }
+        // else {
+        //     this.addGroupContainer.style.display = "none";
+        // }
+    }
+
     showError(message) {
         alert(message);
     }
@@ -227,6 +283,10 @@ class GroupsView extends HTMLElement {
         this.backButton.onclick = handler
             ? () => handler()
             : null;
+    }
+
+    bindSaveNewGroup(handler) {
+        this.onSaveNewGroup = handler;
     }
 }
 

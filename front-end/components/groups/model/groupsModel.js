@@ -53,6 +53,17 @@ class GroupsModel {
         );
         return response;
     }
+    async createGroup(newName) {
+        const body = { newGroupName: newName };
+        const response = await this.apiClient.makeApiCall(
+            "group/create",
+            "POST",
+            body,
+            null,
+            this.currentUserId
+        );
+        return response;
+    }
 }
 
 export { GroupsModel };

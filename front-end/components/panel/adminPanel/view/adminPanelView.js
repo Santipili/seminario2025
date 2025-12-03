@@ -12,6 +12,7 @@ class AdminPanelView extends HTMLElement {
         this.userNameLabel.classList.add("admin-panel__user-name");
         this.userNameLabel.textContent = "Usuario";
 
+        //TODO:  Deberia ser un componente en si el boton para manejarllo mas facil
         this.newUserButton = document.createElement("button");
         this.newUserButton.classList.add("btn", "btn--primary");
         this.newUserButton.innerHTML = `<span class="btn__icon">+</span><span>Nuevo usuario</span>`;
@@ -147,7 +148,7 @@ class AdminPanelView extends HTMLElement {
             tr.appendChild(tdActions);
 
             tdGroup.addEventListener("click", (e) => {
-                // No reabrir si el click vino del select en sí
+                // No reabrir si el click vino del select 
                 if (e.target === select) return;
 
                 groupLabel.style.display = "none";

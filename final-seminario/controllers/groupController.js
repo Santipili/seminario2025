@@ -4,12 +4,12 @@ const groupRepo = require('../db/groupRepository');
 class GroupController {
     constructor() { }
 
-    async createGroup({ userUUID, name }) {
-        if (!userUUID) throw new Error('session-token requerido en headers');
-        if (!name) throw new Error('name del grupo requerido');
+    async createGroup({ userUUID, newGroupName }) {
+        if (!userUUID) throw new Error('user-id requerido en headers');
+        if (!newGroupName) throw new Error('name del grupo requerido');
 
         const result = await groupRepo.createGroup({
-            groupName: name,
+            groupName: newGroupName,
             userUUID,
         });
 

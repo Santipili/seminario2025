@@ -31,7 +31,7 @@ api.put('/user/edit', rh.editUser);
 api.get('/user/getList', rh.listUsers);
 api.get('/user/getOne', rh.getUserById);
 
-api.post('/group/add', rh.newGroup);
+api.post('/group/create', rh.newGroup);
 api.post('/group/delete', rh.deleteGroup);
 api.put('/group/edit', rh.editGroup);
 api.get('/group/getList', rh.listGroups);

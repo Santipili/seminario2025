@@ -11,6 +11,7 @@ class GroupsController {
         this.view.bindSaveEdit((groupId) => this.onSaveGroup(groupId));
         this.view.bindCancelEdit((groupId) => this.onCancelEdit(groupId));
         this.view.bindGoBack(() => this.onGoBack());
+        this.view.bindSaveNewGroup((groupName) => this.onSaveNewGroup(groupName));
 
         await this.loadGroups();
     }
@@ -21,6 +22,7 @@ class GroupsController {
         this.view.bindSaveEdit(null);
         this.view.bindCancelEdit(null);
         this.view.bindGoBack(null);
+        this.view.bindSaveNewGroup(null);
     }
 
     async loadGroups() {
@@ -65,7 +67,7 @@ class GroupsController {
     }
 
     async onSaveGroup(groupId) {
-        const group = this.model.groups.find(g => String(g.id) === String(groupId));
+        const group = this.model.groups.find(item => String(item.id) === String(groupId));
         if (!group) return;
 
         const newName = this.view.getEditedName(groupId);
@@ -103,6 +105,23 @@ class GroupsController {
         this.view.resetRow(groupId, group.name, group.name === 'ADMIN');
     }
 
+    async onSaveNewGroup(newName) {
+        if (!newName) {
+            this.view.showError('El nombre del grupo no puede estar vacío.');
+            return;
+        }
+        if (this.model.groups.find(g => g.name === newName)) {
+            this.view.showError('Ya existe un grupo con ese nombre.');
+            return;
+        }
+        try {
+            await this.model.createGroup(newName);
+            this.view.renderGroups(this.model.groups);
+        } catch (error) {
+            console.error('Error creando grupo', error);
+            this.view.showError('Ocurrió un error al crear el grupo.');
+        }
+    }
     onGoBack() {
         window.dispatchEvent(new Event("trigger-loggedIn-admin"));
     }

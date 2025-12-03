@@ -157,7 +157,7 @@ class RequestHandler {
 
             const response = await this.groupHandler.createGroup({ userUUID, ...requestData });
 
-            return res.end(JSON.stringify({ status: true, message: response }));
+            return res.end(JSON.stringify({ status: true, message: 'created group', data: response }));
         } catch (e) {
             res.statusCode = 500;
             return res.end(JSON.stringify({ status: false, message: e.message }));
